@@ -4,6 +4,7 @@ RUN yum install -y \
     wget \
     unzip \
     ruby \
+    bzip2 \
     && yum clean all
 
 # Install activator play
@@ -17,7 +18,8 @@ RUN wget -O ${HOME}/${ACTIVATOR_DIR}.zip \
 
 ENV PATH ${HOME}/activator-dist-${ACTIVATOR_VER}:$PATH
 
-RUN curl -sL https://rpm.nodesource.com/setup_5.x | bash - && \
+# Add useful other dependencies of play builds...
+RUN gem install bundle
+RUN curl -sL https://rpm.nodesource.com/setup_4.x | bash - && \
     yum install -y nodejs && \
     yum clean all
-
