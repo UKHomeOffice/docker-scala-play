@@ -1,4 +1,4 @@
-FROM quay.io/ukhomeofficedigital/openjdk8:v0.1.2
+FROM quay.io/ukhomeofficedigital/openjdk8:v1.0.1
 
 RUN yum install -y \
     wget \
